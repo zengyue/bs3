@@ -1,0 +1,22 @@
+{
+  "name": "bs3",
+  "title": "bui bootstrap3的样式",
+  "description": "The best project ever.",
+  "version": "1.0.0",
+  "author": {
+    "name": "{索丘}({054212})",
+    "email": "zengyue.yezy@alibaba-inc.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zengyue/bs3.git"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.5",
+    "gulp-git": "~0.3.6"
+  },
+  "keywords": []
+}
