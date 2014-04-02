@@ -8,8 +8,6 @@
 // -----------------
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
   background-color: @tableBackground;
 }
 
@@ -18,12 +16,12 @@ table {
 
 .table {
   width: 100%;
-  margin-bottom: @baseLineHeight/2;
-  border-collapse: separate;
+  margin-bottom: @computedLineHeight;
+
   // Cells
   th,
   td {
-    padding: @baseLineHeight/2;
+    padding: @computedLineHeight / 2;
     line-height: @baseLineHeight;
     text-align: left;
     vertical-align: top;
@@ -32,10 +30,11 @@ table {
   th {
     font-weight: bold;
   }
-  border-spacing:0;
+  
   // Bottom align for column headings
-  thead tr {
+  thead tr:last-child th{
     vertical-align: bottom;
+    border-bottom: 2px solid @tableBorder;
   }/**/
   
   // Remove top border from thead by default
@@ -58,7 +57,7 @@ table {
     vertical-align: bottom;
     #gradient > .vertical(@tableHeaderBackground,@tableHeaderBackgroundHighlight);
     
-  }/**/
+  }
   
   // Remove top border from thead by default
   colgroup + thead tr:first-child th,
@@ -121,53 +120,18 @@ table {
 .table-bordered {
   border: 1px solid @tableBorder;
   border-left: 0;
-  border-collapse: separate; // Done so we can round those corners!
-  *border-collapse: collapsed; /**/// IE7 can't round corners anyway
-  .border-radius(@radius);
-
-  thead tr{
-    #gradient > .vertical(@tableBorderedHeaderBackground,@tableBorderedHeaderBackgroundHighlight);
-  }/**/
-
-  thead tr th:last-child,thead tr td:last-child{
-    border-right: none;
-  }/**/
-
-  
   th,
   td {
-    
     border-left: 1px solid @tableBorder;
   }
-  thead th,thead td{
-    padding-top:0;
-    padding-bottom:0;
-    height:@baseLineHeight * 2 + 2;
-    line-height:@baseLineHeight * 2 + 2;
-  }
-  // Prevent a double border
-  thead:first-child tr:first-child th,
-  tbody:first-child tr:first-child th,
-  tbody:first-child tr:first-child td {
-    border-top: 0;
-  }
-  // For first th or td in the first row in the first thead or tbody
-  thead:first-child tr:first-child th:first-child,
-  tbody:first-child tr:first-child td:first-child {
-    .border-radius(@radius 0 0 0);
-  }
-  thead:first-child tr:first-child th:last-child,
-  tbody:first-child tr:first-child td:last-child {
-    .border-radius(0 @radius 0 0);
-  }
-  // For first th or td in the first row in the first thead or tbody
-  thead:last-child tr:last-child th:first-child,
-  tbody:last-child tr:last-child td:first-child {
-    .border-radius(0 0 0 @radius);
-  }
-  thead:last-child tr:last-child th:last-child,
-  tbody:last-child tr:last-child td:last-child {
-    .border-radius(0 0 @radius 0);
+
+  thead{
+    tr:last-child{
+      th,
+      td{
+        border-bottom: 2px solid @tableBorder;
+      }
+    }
   }
 }
 
@@ -177,25 +141,27 @@ table {
 
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
-  tbody {
-    tr:nth-child(odd) td,
-    tr:nth-child(odd) th {
-      background-color: @tableBackgroundAccent;
+  tbody{
+    tr:nth-child(odd){
+      td,
+      th{
+        background-color: @tableBackgroundAccent;
+      }
     }
   }
 }
 
 .table-bordered.table-striped{
-  tbody {
-    tr:nth-child(odd) td,
-    tr:nth-child(odd) th {
+  tbody tr:nth-child(odd) {
+    td,
+    th{
       background-color: @white;
     }
   }
 
-  tbody {
-    tr:nth-child(even) td,
-    tr:nth-child(even) th {
+  tbody tr:nth-child(even){
+    td,
+    th{
       background-color: @tableBackgroundAccent;
     }
   }
@@ -206,9 +172,11 @@ table {
 // ------------
 // Placed here since it has to come after the potential zebra striping
 .table {
-  tbody tr:hover td,
-  tbody tr:hover th {
-    background-color: @tableBackgroundHover;
+  tbody tr:hover{
+    td,
+    th {
+      background-color: @tableBackgroundHover;
+    }
   }
 }
 

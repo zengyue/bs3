@@ -47,7 +47,7 @@
 @disabledColor:         #ccc; 
 @borderColor:           #c3c3d6;
 @backColor:             #E8E9EF;
-@radius:                3px;
+
 
 @selectedBackground:    #ccd7ff;
 @selectedBorderColr:    #99afff;
@@ -78,13 +78,50 @@
 @headingsFontWeight:    500;    // instead of browser default, 500
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
+//字体大小的字义
+@fontSizeBase:          @baseFontSize;
+@fontSizeLarge:         ceil((@baseFontSize * 1.25)); // ~18px
+@fontSizeSmall:         ceil((@baseFontSize * 0.85)); // ~12px
+
+@font-size-h1:            floor((@baseFontSize * 2.6)); // ~36px
+@font-size-h2:            floor((@baseFontSize * 2.15)); // ~30px
+@font-size-h3:            ceil((@baseFontSize * 1.7)); // ~24px
+@font-size-h4:            ceil((@baseFontSize * 1.25)); // ~18px
+@font-size-h5:            @baseFontSize;
+@font-size-h6:            ceil((@baseFontSize * 0.85)); // ~12px
+
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+@paddingBaseVertical:     6px;
+@paddingBaseHorizontal:   12px;
+
+@paddingLargeVertical:    10px;
+@paddingLargeHorizontal:  16px;
+
+@paddingSmallVertical:    5px;
+@paddingSmallHorizontal:  10px;
+
+@paddingMiniVertical:     1px;
+@paddingMiniHorizontal:   5px;
+
+@lineHeightLarge:         1.33;
+@lineHeightSmall:         1.5;
+
+@radius:                  4px;
+@radiusLarge:             6px;
+@radiusSmall:             3px;
 
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
-@tableBackgroundAccent:             #f2f2f2; // for striping
-@tableBackgroundHover:              #f0f0f0; // for hover
+@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundHover:              #f5f5f5; // for hover
 @tableBorder:                       #ddd; // table and cell border
+@tableActive:                       @tableBackgroundHover;
 
 @tableBorderedHeaderBackground:             #f8f8f8;
 @tableBorderedHeaderBackgroundHighlight:    @grayLighter;
@@ -113,45 +150,53 @@
 @iconHoverColor:                    #73787d;
 @iconHoverBorderColor:              #a6a6c1;
 
-// Buttons
-// -------------------------
-@btnBackground:                     #fff;//#f8f8f8;
-@btnBackgroundHighlight:            #e4e4e4;
-@btnBorder:                         darken(@white, 20%);
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
 
-@btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+@buttonFontWeight:                normal;
 
-@btnInfoBackground:                 #5bc0de;
-@btnInfoBackgroundHighlight:        #2f96b4;
+@buttonDefaultColor:              #333;
+@buttonDefaultBg:                 #fff;
+@buttonDefaultBorder:             #ccc;
 
-@btnSuccessBackground:              #62c462;
-@btnSuccessBackgroundHighlight:     #51a351;
+@buttonPrimaryColor:              #fff;
+@buttonPrimaryBg:                 @brandPrimary;
+@buttonPrimaryBorder:             darken(@buttonPrimaryBg, 5%);
 
-@btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundHighlight:     @orange;
+@buttonSuccessColor:              #fff;
+@buttonSuccessBg:                 @brandSuccess;
+@buttonSuccessBorder:             darken(@buttonSuccessBg, 5%);
 
-@btnDangerBackground:               #ee5f5b;
-@btnDangerBackgroundHighlight:      #bd362f;
+@buttonInfoColor:                 #fff;
+@buttonInfoBg:                    @brandInfo;
+@buttonInfoBorder:                darken(@buttonInfoBg, 5%);
 
-@btnInverseBackground:              @gray;
-@btnInverseBackgroundHighlight:     @grayDarker;
+@buttonWarningColor:              #fff;
+@buttonWarningBg:                 @brandWarning;
+@buttonWarningBorder:             darken(@buttonWarningBg, 5%);
 
-@btnTabBackground:                  #6c9dfc;
-@btnTabBackgroundHighlight:         spin(@btnTabBackground, 15%);
-       
-@btnTabSelectedBorder:              #5984de; 
-@btnTabHoverBackground:             #dadada;
+@buttonDangerColor:               #fff;
+@buttonDangerBg:                  @brandDanger;
+@buttonDangerBorder:              darken(@buttonDangerBg, 5%);
+
+@buttonInverseColor:               #fff;
+@buttonInverseBg:                  @brandInverse;
+@buttonInverseBorder:              darken(@buttonInverseBg, 5%);
+
+@buttonLinkDisabledColor:        @grayLight;
 
 // Forms
 // -------------------------
 @inputBackground:               @white;
-@inputBorder:                   @borderColor;
+@inputBorder:                   #ccc;
 @inputDisabledBackground:       @grayLighter;
 @controlRowHeight:              18px;
 @controlAppendHeight:           4px;
-@controlFocusBorder:						#98b2e5;
-@controlFocusOuter:							#3366cc;
+@controlFocusBorder:            #66afe9;
+//** Placeholder text color
+@inputColorPlaceholder:        @grayLight;
+
 @controlNormal:                 140px;
 @controlSmall:                  80px;
 @controlLarge:                  300px;
@@ -203,22 +248,22 @@
 
 // Form states and alerts
 // -------------------------
-@warningText:             #c09853;
-@warningBackground:       #fcf8e3;
-@warningBorder:           darken(spin(@warningBackground, -10), 3%);
-
-@errorText:               #fe0000; //#b94a48;
-@errorBackground:         #f2dede;
-@errorBorder:             #e5a098;//darken(spin(@errorBackground, -10), 3%);
-@errorOuter:              #cc4333;
-
-@successText:             #468847;
+@successText:             #3c763d;
 @successBackground:       #dff0d8;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
+@infoText:                #31708f;
 @infoBackground:          #d9edf7;
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+@warningText:             #8a6d3b;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #a94442; //#b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 5%);
+// @errorOuter:              #cc4333;
 
 
 // GRID

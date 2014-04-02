@@ -1,15 +1,28 @@
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
 
-
-// 修正 from页面 iframe 底部间距 导致 大外框 滚动条问题 by 黄甲
-.form-page,.search-page,.detail-page{
-	padding: 25px 0 0 20px;
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  // Chrome and Firefox set a `min-width: -webkit-min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359.
+  min-width: 0;
 }
 
-//修正 查询页面 grid tbar 与 button 无间隔问题 by 黄甲
-.search-grid-container{
-	margin-top:5px;
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: @computedLineHeight;
+  font-size: (@fontSizeBase * 1.5);
+  line-height: inherit;
+  color: @grayDark;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
 }
-
 
 //控件宽度
 //设置默认宽度
@@ -26,8 +39,31 @@ select{
 .input-control(){
 	display:inline-block;
 	height:@controlRowHeight;
-	padding: 1px 4px;
-	border:1px solid @inputBorder;
+	padding: @paddingBaseVertical @paddingBaseHorizontal;
+	border: 1px solid @inputBorder;
+	border-radius: @radius;
+	.box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+	.transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+	.form-control-focus();
+	.placeholder();
+
+	// Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    background-color: @input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
 }
 //因为ie6,所以需要在文本框上面添加样式
 .control-text{
@@ -106,27 +142,14 @@ input.calendar-time{
 	}
 }
 
-fieldset{
-	padding: 0;
-	margin: 0;
-	border: 0;
-}
-
-legend {
-	display: block;
-	width: 100%;
-	padding: 0;
-	margin-bottom: @baseLineHeight;
-	font-size: 14px;
-	line-height: 40px;
-	border: 0;
-	border-bottom: 1px solid @borderColor;
-}
-
 .form-vertical{
 	label{
 		display: block;
 		margin-bottom: 5px;
+		font-weight: bold;
+	}
+	.checkbox,.radio{
+		font-weight: normal;
 	}
 }
 
@@ -138,7 +161,7 @@ legend {
 	.control-label{
 		float:left;
 		text-align: right;
-		line-height:@controlRowHeight + @controlAppendHeight;
+		line-height:@controlRowHeight + @paddingBaseVertical * 2;
 		.inline-block();
 		.spanWidth(3);
 		s{
@@ -163,12 +186,12 @@ legend {
 		*zoom:1;
 		.control-rowX(2);
 	}
-	
+
 	input[class*="span"],select[class*="span"]{
 		float:none;
 		margin:0;
 	}
-	
+
 	//高度
 	.control-row1{
 		.control-rowX(1);
@@ -193,7 +216,7 @@ legend {
 			margin-bottom:0;
 		}
 	}
-	
+
 	.controls 
 	//错误提示
 	.valid-text{
@@ -214,7 +237,7 @@ legend {
 		color:red;
 	}
 
-		
+
 	.form-link{
 		margin-left:20px;
 		vertical-align: bottom;
