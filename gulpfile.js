@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var git = require('gulp-git');
 var package = require('./package.json');
 
-var branch = 'origin';
+var branch = 'master';
 
 gulp.task('pull', function(done){
   git.pull('origin', branch, {args: '--rebase'}, done);
