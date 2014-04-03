@@ -26,8 +26,7 @@
 .x-icon-normal{
 	text-shadow: none;
 	color: @iconColor;
-	.buttonBackground(@iconBackground, @iconBackgroundHighlight);
-	border: 1px solid darken(@btnBorder, 10%);
+	.button-variant(@buttonDefaultColor; @buttonDefaultBg; @buttonDefaultBorder);
 }
 
 .x-icon-small{
@@ -59,33 +58,30 @@
 }
 
 .x-icon-disable{
-	.buttonBackground(@iconBackground, @iconDisableBackGroundHighlight);
+	.iconBackground(@iconBackground, @iconDisableBackGroundHighlight);
 	color:@iconDisableColor;
 	border: 1px solid @iconDisableBorderColor;			
 }
+
 .x-icon-hover,.x-icon-normal:hover{
-	.buttonBackground(@iconBackground, @iconHoverBackGroundHighlight);
+	.iconBackground(@iconBackground, @iconHoverBackGroundHighlight);
 	color:@iconHoverColor;
 	border: 1px solid @iconHoverBorderColor;	
 }
 
 .x-icon-success{
-	color: @white;
-	.buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+	.button-variant(@buttonSuccessColor; @buttonSuccessBg; @buttonSuccessBorder);
 }
 
 .x-icon-warning{
-	color: @white;
-	.buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+	.button-variant(@buttonWarningColor; @buttonWarningBg; @buttonWarningBorder);
 }
 
 .x-icon-error{
-	color: @white;
-	.buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+	.button-variant(@buttonDangerColor; @buttonDangerBg; @buttonDangerBorder);
 }
 .x-icon-info,.x-icon-question{
-	color: @white;
-	.buttonBackground(@iconInfoBackground, @iconInfoBackgroundHighlight);
+	.button-variant(@buttonInfoColor; @buttonInfoBg; @buttonInfoBorder);
 }
 
 

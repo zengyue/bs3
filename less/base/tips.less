@@ -1,24 +1,33 @@
 .tips{
 	padding:12px;
 	border: 1px solid;
-	border-color: @tipNormalBorder;
 	.border-radius(@radius);
+	color: @tipNormalText;
+	border-color: @tipNormalBorder;
 	background-color: @tipNormalBackground;
 }
 .tips-small{
 	padding	: 3px;
 }
 .tips-warning{
+	color: @tipWaringText;
 	border-color: @tipWaringBorder;
 	background-color: @tipWaringBackground;
 }
 .tips-notice{
+	color: @tipNoticeText;
 	border-color: @tipNoticeBorder;
 	background-color: @tipNoticeBackground;
 }
 .tips-info{
+	color: @tipInfoText;
 	border-color: @tipInfoBorder;
 	background-color: @tipInfoBackground;
+}
+.tips-success{
+	color: @tipSuccessText;
+	border-color: @tipSuccessBorder;
+	background-color: @tipSuccessBackground;
 }
 .tips .x-icon{
 	float:left;
@@ -34,10 +43,7 @@
 	margin-left: 21px;
 }
 
-.tips-success{
-	border-color: @tipSuccessBorder;
-	background-color: @tipSuccessBackground;
-}
+
 .tips-no-icon .tips-content{
 	margin-left:3px;
 }

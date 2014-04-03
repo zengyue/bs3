@@ -129,9 +129,47 @@
 @tableHeaderBackground:             @white;
 @tableHeaderBackgroundHighlight:    #f4f4f4;
 
-//panel
-@panelHeaderBackground: #f8f8f8;
-@panelHeaderBackgroundHighlight:    @grayLighter;
+
+
+//== Panels
+//
+//##
+
+@panel-bg:                    #fff;
+@panel-body-padding:          15px;
+@panel-header-padding:       10px 15px;
+@panel-footer-padding:        @panel-heading-padding;
+@panel-border-radius:         @radius;
+
+//** Border color for elements within panels
+@panel-inner-border:          #ddd;
+@panel-footer-bg:             #f5f5f5;
+
+@panel-default-text:          @grayDark;
+@panel-default-border:        #ddd;
+@panel-default-heading-bg:    #f5f5f5;
+
+@panel-primary-text:          #fff;
+@panel-primary-border:        @brandPrimary;
+@panel-primary-heading-bg:    @brandPrimary;
+
+@panel-success-text:          @successText;
+@panel-success-border:        @successBorder;
+@panel-success-heading-bg:    @successBackground;
+
+@panel-info-text:             @infoText;
+@panel-info-border:           @infoBorder;
+@panel-info-heading-bg:       @infoBackground;
+
+@panel-warning-text:          @warningText;
+@panel-warning-border:        @warningBorder;
+@panel-warning-heading-bg:    @warningBackground;
+
+@panel-danger-text:           @errorText;
+@panel-danger-border:         @errorBorder;
+@panel-danger-heading-bg:     @errorBackground;
+
+
 
 //icons 大部分icons的颜色使用按钮的颜色
 @iconInfoBackground:                #0096e8;
@@ -283,14 +321,19 @@
 @fluidGridGutterWidth:    1.0526315789%;//2.127659574%;
 
 //tip
-@tipNoticeBorder:         #ffcc7f;
-@tipNoticeBackground:     #ffffe5;
-@tipSuccessBorder:        #aae77f;
-@tipSuccessBackground:    #f0ffe5;
-@tipWaringBorder:         #ffb2b2;
-@tipWaringBackground:     #fff3f3;
-@tipInfoBorder:           #acd5ff;
-@tipInfoBackground:       #e6f2ff;
-@tipNormalBorder:         #e5e5e5;
-@tipNormalBackground:     #fafafa;
+@tipNoticeText:           @panel-warning-text;
+@tipNoticeBorder:         @panel-warning-border;
+@tipNoticeBackground:     @panel-warning-heading-bg;
+@tipSuccessText:          @panel-success-text;
+@tipSuccessBorder:        @panel-success-border;
+@tipSuccessBackground:    @panel-success-heading-bg;
+@tipWaringText:           @panel-danger-text;
+@tipWaringBorder:         @panel-danger-border;
+@tipWaringBackground:     @panel-danger-heading-bg;
+@tipInfoText:             @panel-info-text;
+@tipInfoBorder:           @panel-info-border;
+@tipInfoBackground:       @panel-info-heading-bg;
+@tipNormalText:           @panel-default-text;
+@tipNormalBorder:         @panel-default-border;
+@tipNormalBackground:     @panel-default-heading-bg;
 
