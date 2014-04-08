@@ -68,8 +68,9 @@ select{
 //因为ie6,所以需要在文本框上面添加样式
 .control-text{
 	width:@controlNormal;
-	.input-control();
+	// .input-control();
 	height: @controlRowHeight;
+	line-height:@controlRowHeight + @paddingBaseVertical * 2 + 2;
 }
 
 label,span{
@@ -106,6 +107,7 @@ select{
 select{
 	.control-rowX(1);
 	padding:0;
+	height: @controlRowHeight + @paddingBaseVertical * 2 + 2;
 }
 textarea{
 	height: @controlRowHeight * 3;
@@ -161,7 +163,7 @@ input.calendar-time{
 	.control-label{
 		float:left;
 		text-align: right;
-		line-height:@controlRowHeight + @paddingBaseVertical * 2;
+		line-height:@controlRowHeight + @paddingBaseVertical * 2 + 2;
 		.inline-block();
 		.spanWidth(3);
 		s{
@@ -185,6 +187,7 @@ input.calendar-time{
 		display:inline;
 		*zoom:1;
 		.control-rowX(2);
+		line-height:@controlRowHeight + @paddingBaseVertical * 2 + 2;
 	}
 
 	input[class*="span"],select[class*="span"]{
@@ -326,7 +329,6 @@ form.form-horizontal{
 }
 .show-grid .controls{
 	text-align: left;
-	line-height: @baseLineHeight + 2;
 }
 
 
