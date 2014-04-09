@@ -79,7 +79,7 @@ cite    { font-style: normal; }
 
 mark,
 .mark {
-  background-color: @state-warning-bg;
+  background-color: @warningBackground;
   padding: .2em;
 }
 
@@ -90,23 +90,23 @@ mark,
 .text-justify        { text-align: justify; }
 
 // Contextual colors
-.text-muted {
-  color: @text-muted;
+.auxiliary-text{
+  color: @grayLight;
 }
 .text-primary {
-  .text-emphasis-variant(@brand-primary);
+  .text-emphasis-variant(@brandPrimary);
 }
 .text-success {
-  .text-emphasis-variant(@state-success-text);
+  .text-emphasis-variant(@successText);
 }
 .text-info {
-  .text-emphasis-variant(@state-info-text);
+  .text-emphasis-variant(@infoText);
 }
 .text-warning {
-  .text-emphasis-variant(@state-warning-text);
+  .text-emphasis-variant(@warningText);
 }
 .text-danger {
-  .text-emphasis-variant(@state-danger-text);
+  .text-emphasis-variant(@errorText);
 }
 
 // Contextual backgrounds
@@ -116,19 +116,19 @@ mark,
   // Given the contrast here, this is the only class to have its color inverted
   // automatically.
   color: #fff;
-  .bg-variant(@brand-primary);
+  .bg-variant(@brandPrimary);
 }
 .bg-success {
-  .bg-variant(@state-success-bg);
+  .bg-variant(@successBackground);
 }
 .bg-info {
-  .bg-variant(@state-info-bg);
+  .bg-variant(@infoBackground);
 }
 .bg-warning {
-  .bg-variant(@state-warning-bg);
+  .bg-variant(@warningBackground);
 }
 .bg-danger {
-  .bg-variant(@state-danger-bg);
+  .bg-variant(@errorBackground);
 }
 
 
@@ -189,7 +189,7 @@ dl {
 }
 dt,
 dd {
-  line-height: @line-height-base;
+  line-height: @baseLineHeight;
 }
 dt {
   font-weight: bold;
@@ -247,7 +247,7 @@ blockquote {
   .small {
     display: block;
     font-size: 80%; // back to default font-size
-    line-height: @line-height-base;
+    line-height: @baseLineHeight;
     color: @blockquote-small-color;
 
     &:before {
@@ -288,5 +288,5 @@ blockquote:after {
 address {
   margin-bottom: @computedLineHeight;
   font-style: normal;
-  line-height: @line-height-base;
+  line-height: @baseLineHeight;
 }
