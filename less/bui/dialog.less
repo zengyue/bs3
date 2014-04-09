@@ -1,80 +1,85 @@
 .bui-overlay {
-		position:absolute;
-		left:-9999px;
-		top:-9999px;
-}
-.bui-dialog{
-	background-color:@white;
-	border:1px solid @dialogBorderColor;
-	.border-radius(2px);
-	.box-shadow(inset 0px 0px 0px 1px @white);
-	position:absolute;
-  background-color:@dialogBackColor;
-  z-index:@zindexModal;
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
 }
 
 .bui-picker{
   z-index:@zindexPicker;
 }
-
 .bui-dialog {
-    .bui-contentbox {
-      background-color:@dialogBackColor;
-      margin:1px;
-    }
-    .bui-stdmod-header{
-      height:22px;
-      line-height:22px;
-      font-size:12px;
-      font-weight:bold;
-      padding-left:4px;
-      color:@grayDark;
-      cursor:move;
-      .user-select(none);
-    }
-    .bui-stdmod-body{
-      background-color: @white;
-      border:1px solid @dialogBorderColor;
-      margin:0 4px;
-      padding:20px;
-    }
-    .bui-stdmod-footer{
-      margin:4px 0;
-      text-align:center;
-      .user-select(none);
-      .button{
-        margin-right:15px;
-        vertical-align: baseline;
-      }
-      .button:last-child{
-        margin-right:0;
-      }
-    }
-    /*-----icon-------*/
-    a.bui-ext-close{
-      position:absolute;
-      right:6px;
-      top:4px;
-      width:16px;
-      height:16px;
-      text-decoration: none;
-      outline: none;
-      overflow: hidden;
-      cursor: pointer;
-      text-decoration:none;
-      z-index:1;
-    }
-    .bui-ext-close-x{
-      display:block;
-      font-size: 17px;
-      *font-size:16px;
-      height: 14px;
-      width: 14px;
-      line-height: 14px;
-      cursor: pointer;
-      .border-radius(2px);
-    }
-  
-   
- }
+  background-color: #fff;
+  border: 1px solid #999; //old browsers fallback (ie8 etc)
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: @radiusLarge;
+  .box-shadow(0 3px 9px rgba(0,0,0,.5));
+  background-clip: padding-box;
+  // Remove focus outline from opened modal
+  outline: 0;
 
+  position:absolute;
+  z-index:@zindexModal;
+
+  
+  .bui-stdmod-header{
+    // height: 25px;
+    padding: 15px;
+    font-family: @headingsFontFamily;
+    font-size: @font-size-h4;
+    font-weight: @headingsFontWeight;
+    color:@grayDark;
+    border-bottom: 1px solid #e5e5e5;
+    cursor:move;
+    .user-select(none);
+  }
+  .bui-stdmod-body{
+    padding: 15px;
+  }
+  // Footer (for actions)
+  .bui-stdmod-footer {
+    padding: 15px;
+    text-align: right; // right align buttons
+    border-top: 1px solid #e5e5e5;
+    .clearfix(); // clear it in case folks use .pull-* classes on buttons
+
+    // Properly space out buttons
+    .button + .button {
+      margin-left: 5px;
+      margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+    }
+    // but override that for button groups
+    .button-group .button + .button {
+      margin-left: -1px;
+    }
+    // and override it for block buttons as well
+    .button-block + .button-block {
+      margin-left: 0;
+    }
+  }
+  
+  /*-----icon-------*/
+  a.bui-ext-close{
+    display: block;
+    width: 22px;
+    height: 22px;
+    position:absolute;
+    right:15px;
+    top:15px;
+    text-decoration: none;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration:none;
+    z-index:1;
+  }
+  .bui-ext-close-x{
+    display:block;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    border: none;
+    &:hover{
+      background-color: #fff;
+    }
+  }
+}

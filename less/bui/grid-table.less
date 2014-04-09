@@ -20,7 +20,7 @@
 .bui-grid-header
 {
     border-top:1px solid @tableBorder;
-    height:25px;
+    //height:25px;
 }
 
 .bui-grid{
@@ -107,14 +107,14 @@ th.bui-grid-hd-empty,td.bui-grid-cell-empty{
   }
 
   .bui-grid-hd-inner{
-    #gradient > .vertical(@btnBackground,@btnBackgroundHighlight);
+    //#gradient > .vertical(@btnBackground,@btnBackgroundHighlight);
   }
 
-  .bui-grid-hd-inner 
-  {
+  .bui-grid-hd-inner {
+    padding: 10px 0;
     height:24px;
     overflow:hidden;
-    font-weight:normal;
+    font-weight:bold;
     background-position: 0 0;
     position:relative;
    }
@@ -148,7 +148,8 @@ th.bui-grid-hd-empty,td.bui-grid-cell-empty{
   }
 
   .bui-grid-hd-hover .bui-grid-hd-inner,.bui-grid-hd-open .bui-grid-hd-inner{
-    #gradient > .vertical(@tableHeaderHover,@tableHeaderHover);
+    // #gradient > .vertical(@tableHeaderHover,@tableHeaderHover);
+    background-color: @tableBackgroundHover;
   }
   .bui-grid-hd-hover,.bui-grid-hd-open{
     .bui-grid-hd-menu-trigger{
@@ -223,7 +224,7 @@ th.bui-grid-hd-empty,td.bui-grid-cell-empty{
   }
 
   .bui-grid-cell-inner{
-    padding: 2px 0;  
+    padding: 10px 0;  
     position:relative;
     overflow: hidden;
   }
@@ -413,11 +414,12 @@ td.bui-grid-cell-empty{
 }
 
 .bui-grid-summary-row:first-child td{
-  border-top: 1px solid @tableCellBorder;
+  border-top: 2px solid @tableCellBorder;
 }
 
 //row-number
 td.x-grid-rownumber{
-  #gradient > .horizontal(@btnBackground,@btnBackgroundHighlight);
+  //#gradient > .horizontal(@btnBackground,@btnBackgroundHighlight);
   text-align: center;
+  background-color: @tableActive;
 }

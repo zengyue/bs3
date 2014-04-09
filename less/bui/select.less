@@ -40,26 +40,32 @@
 }
 
 .bui-select{
-  .bui-inline-block();
+  display: inline-block;
   .bui-select-input{
-    _border:1px solid @borderColor;
-    border-right:none;
-    vertical-align:middle;
-    outline: none;
-    _height:22px;
-    _padding:1px 4px;
-    width: 118px;
+    // _border:1px solid @borderColor;
+    // border-right:none;
+    // vertical-align:middle;
+    // outline: none;
+    // _height:22px;
+    // _padding:1px 4px;
+    // width: 118px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    // border-right: none;
   }
   .x-icon{
     vertical-align:middle;
     cursor: pointer;
-    height: 20px;
-    width: 20px;
+    height: 28px;
+    width: 28px;
+    border-left: none;
     .border-radius(0);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
   
   .icon-caret{
-    vertical-align:middle;
+    // vertical-align:middle;
     margin-top: -4px;
   }
 }

@@ -1,5 +1,5 @@
 .calendar{
-	background:url("@{calendarPath}") no-repeat right -130px white;
+	background:url("@{calendarPath}") no-repeat right -128px white;
 }
 
 .bui-calendar{
@@ -25,7 +25,8 @@
   position: relative;
   height: 26px;
   line-height:26px;
-  background-color:@btnPrimaryBackground;
+  // background-color:@buttonPrimaryBg;
+  background-color: #36c;
 }
 
 .x-datepicker-month{
@@ -54,7 +55,8 @@
   top: 5px;
   width: 14px;
   height:14px;
-  border: 1px solid @arrowBorderColor;
+  // border: 1px solid @buttonPrimaryBorder;
+  border: 1px solid #3340CC;
 }
 
 .x-datepicker-prev {
@@ -89,7 +91,7 @@ table.x-datepicker-inner th {
   color: @textColor;
   font: normal 10px tahoma,arial,verdana,sans-serif;
   text-align: right;
-  #gradient > .vertical(@btnBackground,@btnBackgroundHighlight);
+  // #gradient > .vertical(@buttonDefaultBg, @buttonBackgroundHighlight);
   border-bottom: 1px solid @borderColor;
   cursor: default;
 }
@@ -117,6 +119,9 @@ table.x-datepicker-inner th span {
   text-decoration: none;
   text-align: right;
   border: 1px solid @white;
+}
+.x-datepicker-date em{
+  font-style: normal;
 }
 
 .x-datepicker-prevday a,.x-datepicker-nextday a ,.x-datepicker-disabled a{
@@ -170,13 +175,15 @@ input.x-datepicker-time{
 }
 
 .bui-calendar-footer,.x-monthpicker-footer{
+  margin-bottom: 3px;
   height:30px;
   line-height: 30px;
   border-top:1px solid @borderColor;
   text-align:center;
-  #gradient > .vertical(@btnBackground,@btnBackgroundHighlight);
+  // #gradient > .vertical(@buttonBackground,@buttonBackgroundHighlight);
   .button{
     margin-right:10px;
+    padding: 1px 5px;
   }
   button.last{
     margin-right:0;
