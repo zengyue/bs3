@@ -3534,6 +3534,7 @@ input.calendar-time {
 }
 .form-horizontal .valid-text .x-icon {
   margin-right: 5px;
+  vertical-align: text-bottom;
 }
 .form-horizontal .valid-text em {
   font-style: normal;
