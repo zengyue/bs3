@@ -190,9 +190,10 @@ h6,
 .h4,
 .h5,
 .h6 {
+  margin: 0;
   font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.5;
   color: inherit;
 }
 h1 small,
@@ -223,15 +224,6 @@ h6 .small,
   line-height: 1;
   color: #999999;
 }
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 h1 small,
 .h1 small,
 h2 small,
@@ -245,15 +237,6 @@ h2 .small,
 h3 .small,
 .h3 .small {
   font-size: 65%;
-}
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 h4 small,
 .h4 small,
@@ -1106,7 +1089,6 @@ a.list-group-item.active > .badge,
   width: 22px;
   overflow: hidden;
   line-height: 22px;
-  vertical-align: text-bottom;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -1115,7 +1097,9 @@ a.list-group-item.active > .badge,
   cursor: inherit;
 }
 .x-icon i {
-  vertical-align: middle;
+  vertical-align: baseline;
+  *margin-right: 0;
+  *vertical-align: middle;
 }
 .x-icon-normal {
   text-shadow: none;
@@ -1171,9 +1155,7 @@ fieldset[disabled] .x-icon-normal.active {
   border-radius: 2px;
 }
 .x-icon-small i {
-  *position: absolute;
-  *top: 0;
-  *left: 0;
+  vertical-align: baseline;
 }
 .x-icon-mini {
   font-size: 14px;
@@ -1186,9 +1168,7 @@ fieldset[disabled] .x-icon-normal.active {
   border-radius: 2px;
 }
 .x-icon-mini i {
-  *position: absolute;
-  *top: 0;
-  *left: 0;
+  vertical-align: baseline;
 }
 .x-icon-disable {
   color: #d5d5d5;
@@ -3208,7 +3188,7 @@ textarea {
   border: 1px solid #cccccc;
 }
 select {
-  width: 150px;
+  width: 166px;
   border: none;
 }
 .control-text {
