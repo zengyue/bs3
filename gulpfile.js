@@ -1,8 +1,19 @@
 var gulp = require('gulp');
 var git = require('gulp-git');
+var less = require('gulp-less');
+
 var package = require('./package.json');
 
 var branch = 'master';
+
+gulp.task('less', function(){
+  return gulp.src([
+    './less/dpl.less',
+    './less/bui.less'
+    ])
+    .pipe(less())
+    .pipe(gulp.dest('./css'));
+});
 
 gulp.task('pull', function(done){
   git.pull('origin', branch, {args: '--rebase'}, done);
