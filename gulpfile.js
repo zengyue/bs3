@@ -1,37 +1,37 @@
+'use strict';
+
 var gulp = require('gulp');
-var git = require('gulp-git');
+var clean = require('gulp-clean');
 var less = require('gulp-less');
+var minifyCSS = require('gulp-minify-css');
+var rename = require('gulp-rename');
+var git = require('gulp-git');
 
-var package = require('./package.json');
-
-var branch = 'master';
+gulp.task('prepare', function() {
+  return gulp.src('./assets/bs3/css', {read: false})
+    .pipe(clean());
+});
 
 gulp.task('less', function(){
   return gulp.src([
-    './less/dpl.less',
-    './less/bui.less'
+    './assets/bs3/less/dpl.less',
+    './assets/bs3/less/bui.less'
     ])
     .pipe(less())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./assets/bs3/css'));
 });
 
-gulp.task('pull', function(done){
-  git.pull('origin', branch, {args: '--rebase'}, done);
+gulp.task('minify-css',['less'], function() {
+  return gulp.src('./assets/bs3/css/**.css')
+    .pipe(minifyCSS())
+    .pipe(rename({suffix: '-min'}))
+    .pipe(gulp.dest('./assets/bs3/css'));
 });
 
-// Run git add with options
-gulp.task('add', ['pull'], function(){
-  return gulp.src('./')
-  .pipe(git.add());
+gulp.task('watch', function(){
+  gulp.watch('./assets/bs3/less/**/*.less', ['less']);
 });
 
-// Run git commit
-// src are the files to commit (or ./*)
-gulp.task('commit', ['add'], function(){
-  return gulp.src('./')
-  .pipe(git.commit(package.name));
-});
-
-gulp.task('default', ['commit'], function(done){
-  git.push('origin', branch, {args: " -f"}, done);
-});
+gulp.task('default',['prepare'], function(){
+  gulp.start('less', 'minify-css');
+})
